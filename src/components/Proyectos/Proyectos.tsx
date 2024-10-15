@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
-import Description from "../Descripcion/descripcion";
 
 export default function Proyectos() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +12,7 @@ export default function Proyectos() {
   const storeClubImages = ["/cab1.png", "/cab2.png", "/cab3.png", "/cab4.png"];
   const ecommerceImages = [
     "/p1.png",
-    "/p2.png", 
+    "/p2.png",
     "/p3.png",
     "/p4.png",
     "/p5.png",
@@ -67,7 +66,6 @@ export default function Proyectos() {
         </div>
       </section>
 
-     
       <section>
         <h2 className="text-4xl text-white font-bold mb-4">Schedule for Vet</h2>
         <div className="flex flex-wrap justify-center">
@@ -75,7 +73,6 @@ export default function Proyectos() {
         </div>
       </section>
 
-    
       {isOpen && selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="relative">
@@ -89,7 +86,7 @@ export default function Proyectos() {
                 selectedImage === "/p6.png"
                   ? 600
                   : 1200
-              } 
+              }
               height={
                 selectedImage === "/p2.png" ||
                 selectedImage === "/v4.png" ||
@@ -97,7 +94,7 @@ export default function Proyectos() {
                 selectedImage === "/p6.png"
                   ? 600
                   : 1000
-              } 
+              }
               className="rounded-lg"
             />
             <button
@@ -109,10 +106,10 @@ export default function Proyectos() {
           </div>
         </div>
       )}
-    
+
       <section className="mt-12">
         <h3 className="text-3xl text-white text-center mb-6">
-          Mis Tecnologías
+          My Technologies
         </h3>
         <div className="flex justify-center space-x-8">
           <FaJs className="text-white text-6xl hover:text-yellow-300" />
@@ -123,7 +120,6 @@ export default function Proyectos() {
           <FaNodeJs className="text-white text-6xl hover:text-green-400" />
         </div>
       </section>
-      <Description/>
     </div>
   );
 }

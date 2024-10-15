@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AiOutlineMessage } from "react-icons/ai";
+import Image from "next/image";
 
 const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,13 +13,17 @@ const Chatbot: React.FC = () => {
     }[]
   >([]);
   const [bounce, setBounce] = useState(false);
+  const [language, setLanguage] = useState("es");
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
     if (!isOpen) {
       const welcomeMessage = {
         from: "bot",
-        text: "¡Hola! Soy Emiliano Cararo, desarrollador Front End. ¿En qué puedo ayudarte hoy?",
+        text:
+          language === "es"
+            ? "¡Hola! Soy Emiliano Cararo, desarrollador Front End. ¿En qué puedo ayudarte hoy?"
+            : "Hello! I'm Emiliano Cararo, Front End Developer. How can I help you today?",
       };
       setMessages([welcomeMessage]);
     }
@@ -36,32 +41,39 @@ const Chatbot: React.FC = () => {
     let botText: string | JSX.Element;
 
     switch (selection) {
-      case "¿Cuáles son tus tecnologías?":
-        botText = (
-          <>
-            Trabajo con HTML, CSS, JavaScript, React, Next.js, TypeScript y
-            Tailwind CSS.
-          </>
-        );
+      case language === "es"
+        ? "¿Cuáles son tus tecnologías?"
+        : "What technologies do you use?":
+        botText =
+          language === "es"
+            ? "Trabajo con HTML, CSS, JavaScript, React, Next.js, TypeScript y Tailwind CSS."
+            : "I work with HTML, CSS, JavaScript, React, Next.js, TypeScript, and Tailwind CSS.";
         break;
-      case "¿Tienes algún proyecto interesante?":
+      case language === "es"
+        ? "¿Tienes algún proyecto interesante?"
+        : "Do you have any interesting projects?":
         botText = (
           <>
-            ¡Sí! Tengo varios proyectos. Puedes verlos en mi sección de
-            proyectos.
+            {language === "es"
+              ? "¡Sí! Tengo varios proyectos. Puedes verlos en mi sección de proyectos."
+              : "Yes! I have several projects. You can see them in my projects section."}
             <button
               onClick={() => (window.location.href = "/Proyectos")}
               className="text-blue-500 underline"
             >
-              Ver Proyectos
+              {language === "es" ? "Ver Proyectos" : "View Projects"}
             </button>
           </>
         );
         break;
-      case "¿Cómo puedo contactarte?":
+      case language === "es"
+        ? "¿Cómo puedo contactarte?"
+        : "How can I contact you?":
         botText = (
           <>
-            Te envío mis enlaces:{" "}
+            {language === "es"
+              ? "Te envío mis enlaces: "
+              : "Here are my links: "}
             <a
               href="https://github.com/emicararo92"
               target="_blank"
@@ -84,18 +96,24 @@ const Chatbot: React.FC = () => {
               href="mailto:tu-email@example.com" // Reemplaza con tu correo real
               className="text-blue-500"
             >
-              Correo
+              {language === "es" ? "Correo" : "Email"}
             </a>
           </>
         );
         break;
-      case "Gracias, eso es todo.":
+      case language === "es"
+        ? "Gracias, eso es todo."
+        : "Thank you, that’s all.":
         botText =
-          "¡De nada! Si necesitas algo más, no dudes en preguntar. ¡Que tengas un buen día!";
+          language === "es"
+            ? "¡De nada! Si necesitas algo más, no dudes en preguntar. ¡Que tengas un buen día!"
+            : "You're welcome! If you need anything else, feel free to ask. Have a nice day!";
         break;
       default:
         botText =
-          "Lo siento, no entendí tu pregunta. Por favor elige una opción.";
+          language === "es"
+            ? "Lo siento, no entendí tu pregunta. Por favor elige una opción."
+            : "I'm sorry, I didn't understand your question. Please choose an option.";
     }
 
     return { from: "bot", text: botText };
@@ -121,6 +139,40 @@ const Chatbot: React.FC = () => {
       </button>
       {isOpen && (
         <div className="mt-2 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 p-4 shadow-lg rounded-lg overflow-hidden">
+          <div className="flex justify-center mb-2">
+            <Image
+              src="/eeuu.png"
+              alt="English"
+              width={24}
+              height={24}
+              className="cursor-pointer m-1"
+              onClick={() => {
+                setLanguage("en");
+                // Cambiar el saludo inicial al cambiar a inglés
+                const welcomeMessage = {
+                  from: "bot",
+                  text: "Hello! I'm Emiliano Cararo, Front End Developer. How can I help you today?",
+                };
+                setMessages([welcomeMessage]); // Solo se muestra el saludo
+              }}
+            />
+            <Image
+              src="/españa.png"
+              alt="Español"
+              width={24}
+              height={24}
+              className="cursor-pointer m-1"
+              onClick={() => {
+                setLanguage("es");
+                // Cambiar el saludo inicial al cambiar a español
+                const welcomeMessage = {
+                  from: "bot",
+                  text: "¡Hola! Soy Emiliano Cararo, desarrollador Front End. ¿En qué puedo ayudarte hoy?",
+                };
+                setMessages([welcomeMessage]); // Solo se muestra el saludo
+              }}
+            />
+          </div>
           <div className="h-64 overflow-y-auto border border-gray-300 p-2">
             {messages.map((msg, index) => (
               <div
@@ -137,41 +189,63 @@ const Chatbot: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap mt-2">
-            {isOpen && (
-              <>
-                <button
-                  onClick={() =>
-                    handleUserSelection("¿Cuáles son tus tecnologías?")
-                  }
-                  className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
-                >
-                  ¿Cuáles son tus tecnologías?
-                </button>
-                <button
-                  onClick={() =>
-                    handleUserSelection("¿Tienes algún proyecto interesante?")
-                  }
-                  className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
-                >
-                  ¿Tienes algún proyecto interesante?
-                </button>
-                <button
-                  onClick={() =>
-                    handleUserSelection("¿Cómo puedo contactarte?")
-                  }
-                  className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
-                >
-                  ¿Cómo puedo contactarte?
-                </button>
-                <button
-                  onClick={() => handleUserSelection("Gracias, eso es todo.")}
-                  className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
-                >
-                  Gracias, eso es todo.
-                </button>
-              </>
-            )}
+          <div className="flex flex-wrap mt-2 justify-center">
+            <button
+              onClick={() =>
+                handleUserSelection(
+                  language === "es"
+                    ? "¿Cuáles son tus tecnologías?"
+                    : "What technologies do you use?"
+                )
+              }
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+            >
+              {language === "es"
+                ? "¿Cuáles son tus tecnologías?"
+                : "What technologies do you use?"}
+            </button>
+            <button
+              onClick={() =>
+                handleUserSelection(
+                  language === "es"
+                    ? "¿Tienes algún proyecto interesante?"
+                    : "Do you have any interesting projects?"
+                )
+              }
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+            >
+              {language === "es"
+                ? "¿Tienes algún proyecto interesante?"
+                : "Do you have any interesting projects?"}
+            </button>
+            <button
+              onClick={() =>
+                handleUserSelection(
+                  language === "es"
+                    ? "¿Cómo puedo contactarte?"
+                    : "How can I contact you?"
+                )
+              }
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+            >
+              {language === "es"
+                ? "¿Cómo puedo contactarte?"
+                : "How can I contact you?"}
+            </button>
+            <button
+              onClick={() =>
+                handleUserSelection(
+                  language === "es"
+                    ? "Gracias, eso es todo."
+                    : "Thank you, that’s all."
+                )
+              }
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+            >
+              {language === "es"
+                ? "Gracias, eso es todo."
+                : "Thank you, that’s all."}
+            </button>
           </div>
         </div>
       )}
