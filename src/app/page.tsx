@@ -35,6 +35,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-8 flex flex-col justify-center items-center">
+      <div className="fixed top-28 left-4 flex flex-col space-y-2">
+        <button
+          onClick={() => {
+            setLanguage("en");
+          }}
+          className="flex items-center justify-center w-10 h-10 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-200"
+        >
+          <Image src={usaFlag} alt="USA Flag" width={25} height={25} />
+        </button>
+        <button
+          onClick={() => {
+            setLanguage("es");
+          }}
+          className="flex items-center justify-center w-10 h-10 bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-200"
+        >
+          <Image src={spainFlag} alt="Spain Flag" width={25} height={25} />
+        </button>
+      </div>
+
       <header className="text-center flex items-center flex-col gap-10 mb-12">
         <h1 className="text-5xl font-bold text-white">Emiliano Cararo</h1>
         <div>
@@ -75,27 +94,6 @@ export default function Home() {
         </h3>
         <p className="text-xl text-gray-300 mb-4">{descriptions[language]}</p>
       </section>
-
-      {/* Iconos de cambio de idioma */}
-      <div className="fixed right-4 flex flex-col space-y-4">
-        <button
-          onClick={() => {
-            setLanguage("en");
-          }}
-          className="flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-200"
-        >
-          <Image src={usaFlag} alt="USA Flag" width={30} height={30} />
-        </button>
-        <button
-          onClick={() => {
-            setLanguage("es");
-          }}
-          className="flex items-center justify-center w-12 h-12 bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-200"
-        >
-          <Image src={spainFlag} alt="Spain Flag" width={30} height={30} />
-        </button>
-      </div>
-
       <footer className="text-center text-white mt-16">
         <p>&copy; 2024 Emiliano Cararo - All rights reserved</p>
       </footer>

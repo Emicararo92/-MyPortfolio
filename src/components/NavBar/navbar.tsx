@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { FaLinkedin, FaGithub, FaFolderOpen, FaEnvelope } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaFolderOpen,
+  FaEnvelope,
+  FaGamepad,
+} from "react-icons/fa"; // Import the gamepad icon
 import Image from "next/image";
 import logo from "../../../public/logo1.png";
 
@@ -22,6 +28,11 @@ export default function Navbar() {
         <div className="flex space-x-6">
           <Link href="../Proyectos" aria-label="Proyectos">
             <FaFolderOpen className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
+          </Link>
+
+          
+          <Link href="/Games" aria-label="Juego Memoria">
+            <FaGamepad className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>
 
           <Link
