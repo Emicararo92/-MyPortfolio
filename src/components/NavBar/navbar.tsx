@@ -7,7 +7,7 @@ import logo from "../../../public/logo1.png";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gradient-to-r border-2 rounded-lg m-2 from-gray-800 via-gray-700 to-gray-900 p-4 shadow-lg">
+    <nav className="bg-gradient-to-r from-blue-600 to-purple-700 border-b-4 border-yellow-400 p-4 shadow-lg">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" aria-label="Home">
           <Image
@@ -15,17 +15,15 @@ export default function Navbar() {
             alt="Home Logo"
             width={50}
             height={50}
-            className="rounded-full cursor-pointer hover:scale-110 transition-all"
+            className="rounded-full cursor-pointer hover:scale-110 transition-transform duration-300"
           />
         </Link>
 
-       
         <div className="flex space-x-6">
-          
           <Link href="../Proyectos" aria-label="Proyectos">
             <FaFolderOpen className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>
-        
+
           <Link
             href="https://linkedin.com"
             target="_blank"
@@ -34,7 +32,7 @@ export default function Navbar() {
           >
             <FaLinkedin className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>
-         
+
           <Link
             href="https://github.com/emicararo92"
             target="_blank"
@@ -43,7 +41,7 @@ export default function Navbar() {
           >
             <FaGithub className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>
-         
+
           <Link href="mailto:tuemail@example.com" aria-label="Email">
             <FaEnvelope className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>

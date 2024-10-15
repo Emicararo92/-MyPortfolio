@@ -38,16 +38,16 @@ export default function Proyectos() {
           alt={`Project image ${index + 1}`}
           width={500}
           height={300}
-          className="rounded-lg object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
+          className="rounded-lg object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
           onClick={() => openModal(src)}
         />
       </div>
     ));
 
   return (
-    <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900 min-h-screen p-10">
+    <div className="bg-gradient-to-r from-blue-600 to-purple-700 min-h-screen p-10">
       <h1 className="text-5xl text-center text-white font-bold mb-8">
-        Mis Proyectos
+        My Projects
       </h1>
 
       {/* Store Club */}
@@ -98,7 +98,7 @@ export default function Proyectos() {
               className="rounded-lg"
             />
             <button
-              className="absolute top-2 right-2 text-black text-3xl"
+              className="absolute top-2 right-2 text-white text-3xl"
               onClick={closeModal}
             >
               &times;
@@ -112,12 +112,12 @@ export default function Proyectos() {
           My Technologies
         </h3>
         <div className="flex justify-center space-x-8">
-          <FaJs className="text-white text-6xl hover:text-yellow-300" />
-          <SiTypescript className="text-white text-6xl hover:text-blue-300" />
-          <FaReact className="text-white text-6xl hover:text-blue-400" />
-          <SiNextdotjs className="text-white text-6xl hover:text-gray-300" />
-          <SiTailwindcss className="text-white text-6xl hover:text-teal-400" />
-          <FaNodeJs className="text-white text-6xl hover:text-green-400" />
+          <FaJs className="text-white text-6xl hover:text-yellow-300 transition duration-300" />
+          <SiTypescript className="text-white text-6xl hover:text-blue-300 transition duration-300" />
+          <FaReact className="text-white text-6xl hover:text-blue-400 transition duration-300" />
+          <SiNextdotjs className="text-white text-6xl hover:text-gray-300 transition duration-300" />
+          <SiTailwindcss className="text-white text-6xl hover:text-teal-400 transition duration-300" />
+          <FaNodeJs className="text-white text-6xl hover:text-green-400 transition duration-300" />
         </div>
       </section>
     </div>

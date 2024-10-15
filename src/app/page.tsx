@@ -34,7 +34,7 @@ export default function Home() {
       : "Building web experiences with creativity and passion!";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 p-8 flex flex-col justify-center items-center">
+    <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-8 flex flex-col justify-center items-center">
       <header className="text-center flex items-center flex-col gap-10 mb-12">
         <h1 className="text-5xl font-bold text-white">Emiliano Cararo</h1>
         <div>
@@ -43,16 +43,16 @@ export default function Home() {
             alt="logo"
             width={200}
             height={200}
-            className="rounded-full border-4 flex border-white shadow-lg"
+            className="rounded-full border-4 border-white shadow-lg"
           />
         </div>
       </header>
 
       <section className="text-center mb-12">
-        <h2 className="text-3xl font-semibold text-gray-300 mb-6">
+        <h2 className="text-3xl font-semibold text-gray-200 mb-6">
           {subtitle}
         </h2>
-        <p className="text-xl text-gray-400">{introduction}</p>
+        <p className="text-xl text-gray-300">{introduction}</p>
       </section>
 
       <section className="text-center mb-12">
@@ -63,7 +63,7 @@ export default function Home() {
           <FaJs className="text-yellow-300 text-7xl hover:scale-110 transition-transform duration-200" />
           <SiTypescript className="text-blue-400 text-7xl hover:scale-110 transition-transform duration-200" />
           <FaReact className="text-cyan-400 text-7xl hover:scale-110 transition-transform duration-200" />
-          <SiNextdotjs className="text-gray-300 text-7xl hover:scale-110 transition-transform duration-200" />
+          <SiNextdotjs className="text-gray-200 text-7xl hover:scale-110 transition-transform duration-200" />
           <SiTailwindcss className="text-teal-400 text-7xl hover:scale-110 transition-transform duration-200" />
           <FaNodeJs className="text-green-400 text-7xl hover:scale-110 transition-transform duration-200" />
         </div>
@@ -73,7 +73,7 @@ export default function Home() {
         <h3 className="text-4xl font-bold text-white mb-8">
           {titles[language]}
         </h3>
-        <p className="text-xl text-gray-400 mb-4">{descriptions[language]}</p>
+        <p className="text-xl text-gray-300 mb-4">{descriptions[language]}</p>
       </section>
 
       {/* Iconos de cambio de idioma */}

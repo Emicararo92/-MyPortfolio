@@ -131,14 +131,14 @@ const Chatbot: React.FC = () => {
     <div className={`fixed bottom-4 right-4 z-50 ${isOpen ? "w-80" : "w-16"}`}>
       <button
         onClick={toggleChat}
-        className={`bg-gradient-to-r from-gray-800 via-gray-700 to-yellow-100 text-white rounded-full p-3 shadow-lg transition duration-300 ease-in-out transform hover:scale-105 ${
+        className={`bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full p-3 shadow-lg transition duration-300 ease-in-out transform hover:scale-105 ${
           bounce ? "animate-bounce" : ""
         }`}
       >
         <AiOutlineMessage size={24} color="white" />
       </button>
       {isOpen && (
-        <div className="mt-2 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-800 p-4 shadow-lg rounded-lg overflow-hidden">
+        <div className="mt-2 bg-gradient-to-r from-blue-500 to-purple-600 p-4 shadow-lg rounded-lg overflow-hidden">
           <div className="flex justify-center mb-2">
             <Image
               src="/eeuu.png"
@@ -148,12 +148,11 @@ const Chatbot: React.FC = () => {
               className="cursor-pointer m-1"
               onClick={() => {
                 setLanguage("en");
-                // Cambiar el saludo inicial al cambiar a inglés
                 const welcomeMessage = {
                   from: "bot",
                   text: "Hello! I'm Emiliano Cararo, Front End Developer. How can I help you today?",
                 };
-                setMessages([welcomeMessage]); // Solo se muestra el saludo
+                setMessages([welcomeMessage]);
               }}
             />
             <Image
@@ -164,12 +163,11 @@ const Chatbot: React.FC = () => {
               className="cursor-pointer m-1"
               onClick={() => {
                 setLanguage("es");
-                // Cambiar el saludo inicial al cambiar a español
                 const welcomeMessage = {
                   from: "bot",
                   text: "¡Hola! Soy Emiliano Cararo, desarrollador Front End. ¿En qué puedo ayudarte hoy?",
                 };
-                setMessages([welcomeMessage]); // Solo se muestra el saludo
+                setMessages([welcomeMessage]);
               }}
             />
           </div>
@@ -198,7 +196,7 @@ const Chatbot: React.FC = () => {
                     : "What technologies do you use?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
             >
               {language === "es"
                 ? "¿Cuáles son tus tecnologías?"
@@ -212,7 +210,7 @@ const Chatbot: React.FC = () => {
                     : "Do you have any interesting projects?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
             >
               {language === "es"
                 ? "¿Tienes algún proyecto interesante?"
@@ -226,7 +224,7 @@ const Chatbot: React.FC = () => {
                     : "How can I contact you?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
             >
               {language === "es"
                 ? "¿Cómo puedo contactarte?"
@@ -240,7 +238,7 @@ const Chatbot: React.FC = () => {
                     : "Thank you, that’s all."
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1"
+              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
             >
               {language === "es"
                 ? "Gracias, eso es todo."
