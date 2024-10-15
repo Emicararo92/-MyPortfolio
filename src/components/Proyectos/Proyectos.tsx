@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiTypescript } from "react-icons/si";
+import Description from "../Descripcion/descripcion";
 
 export default function Proyectos() {
   const [isOpen, setIsOpen] = useState(false);
@@ -122,6 +123,7 @@ export default function Proyectos() {
           <FaNodeJs className="text-white text-6xl hover:text-green-400" />
         </div>
       </section>
+      <Description/>
     </div>
   );
 }
