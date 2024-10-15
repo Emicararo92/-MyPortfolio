@@ -67,7 +67,7 @@ export default function Proyectos() {
       </section>
 
       <section>
-        <h2 className="text-4xl text-white font-bold mb-4">Schedule for Vet</h2>
+        <h2 className="text-4xl text-white font-bold mb-4">Veterinary Scheduler</h2>
         <div className="flex flex-wrap justify-center">
           {renderImages(vetImages)}
         </div>
