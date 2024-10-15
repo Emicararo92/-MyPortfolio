@@ -98,7 +98,7 @@ export default function Proyectos() {
               className="rounded-lg"
             />
             <button
-              className="absolute top-2 right-2 text-white text-3xl"
+              className="absolute top-2 right-2 text-black text-3xl"
               onClick={closeModal}
             >
               &times;
