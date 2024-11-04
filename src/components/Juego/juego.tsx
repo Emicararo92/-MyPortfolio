@@ -93,9 +93,9 @@ const MemoryGame = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen">
+    <div className="bg-gradient-to-r from-blue-600 to-purple-700 relative flex flex-col items-center justify-center h-screen">
       <h1 className="text-3xl font-bold mb-4 juegoMemoria">Memory Game</h1>
-      <p className="text-lg text-center text-gray-700 mb-6">
+      <p className="bg-cyan-50 rounded-lg p-3 text-lg text-center text-gray-700 mb-6">
         In programming, memory is crucial for recalling patterns, syntax, <br />
         and solutions to common problems. A good developer can store <br />
         and organize a lot of information in their mind while working, <br />

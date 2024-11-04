@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FaJs, FaReact, FaNodeJs } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import Image from "next/image";
-import rat from "../../public/emi.png";
+import rat from "../../public/yoPerfil.webp";
 import usaFlag from "../../public/eeuu.png";
 import spainFlag from "../../public/españa.png";
 
