@@ -1,5 +1,9 @@
 import MemoryGame from "@/components/Juego/juego";
 
 export default function Game() {
-  return <MemoryGame />;
+  return (
+    <div>
+      <MemoryGame />
+    </div>
+  );
 }

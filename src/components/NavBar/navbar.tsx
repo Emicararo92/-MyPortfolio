@@ -7,13 +7,13 @@ import {
   FaFolderOpen,
   FaEnvelope,
   FaGamepad,
-} from "react-icons/fa"; // Import the gamepad icon
+} from "react-icons/fa";
 import Image from "next/image";
 import logo from "../../../public/logo1.png";
 
 export default function Navbar() {
   return (
-    <nav className="bg-gradient-to-r from-blue-600 to-purple-700 border-b-4 border-yellow-400 p-4 shadow-lg">
+    <nav className="fixed top-0 left-0 w-full  bg-opacity-80 backdrop-blur-md border-b-4 border-amber-100 p-4 shadow-lg z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" aria-label="Home">
           <Image
@@ -30,7 +30,6 @@ export default function Navbar() {
             <FaFolderOpen className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>
 
-          
           <Link href="/Games" aria-label="Juego Memoria">
             <FaGamepad className="text-white text-3xl hover:text-yellow-300 transition-transform transform hover:scale-110" />
           </Link>

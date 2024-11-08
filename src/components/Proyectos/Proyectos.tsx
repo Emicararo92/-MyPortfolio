@@ -45,11 +45,10 @@ export default function Proyectos() {
     ));
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-purple-700 min-h-screen p-10">
+    <div className="bg-gradient-to-r mt-16 from-[#222b83] to-[#0c0a23] min-h-screen p-10">
       <h1 className="text-5xl text-center text-white font-bold mb-8">
         My Projects
       </h1>
-
       {/* Store Club */}
       <section className="mb-10">
         <h2 className="text-4xl text-white font-bold mb-4">Store Club</h2>
@@ -57,7 +56,8 @@ export default function Proyectos() {
           {renderImages(storeClubImages)}
         </div>
       </section>
-
+      <hr className="border-t-2 border-amber-100 my-10" />{" "}
+      {/* Barra horizontal */}
       {/* Ecommerce */}
       <section className="mb-10">
         <h2 className="text-4xl text-white font-bold mb-4">Ecommerce</h2>
@@ -65,14 +65,16 @@ export default function Proyectos() {
           {renderImages(ecommerceImages)}
         </div>
       </section>
-
+      <hr className="border-t-2border-amber-100 my-10" />{" "}
+      {/* Barra horizontal */}
       <section>
-        <h2 className="text-4xl text-white font-bold mb-4">Veterinary Scheduler</h2>
+        <h2 className="text-4xl text-white font-bold mb-4">
+          Veterinary Scheduler
+        </h2>
         <div className="flex flex-wrap justify-center">
           {renderImages(vetImages)}
         </div>
       </section>
-
       {isOpen && selectedImage && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
           <div className="relative">
@@ -106,11 +108,8 @@ export default function Proyectos() {
           </div>
         </div>
       )}
-
-      <section className="mt-12">
-        <h3 className="text-3xl text-white text-center mb-6">
-          My Technologies
-        </h3>
+      <hr className="border-t-2 border-amber-100 my-10" />
+      <section className="mt-20">
         <div className="flex justify-center space-x-8">
           <FaJs className="text-white text-6xl hover:text-yellow-300 transition duration-300" />
           <SiTypescript className="text-white text-6xl hover:text-blue-300 transition duration-300" />

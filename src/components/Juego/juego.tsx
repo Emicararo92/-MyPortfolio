@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,7 +45,6 @@ const MemoryGame = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [disabled, setDisabled] = useState(false);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
 
   useEffect(() => {
@@ -93,9 +93,11 @@ const MemoryGame = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-purple-700 relative flex flex-col items-center justify-center h-screen">
-      <h1 className="text-3xl font-bold mb-4 juegoMemoria">Memory Game</h1>
-      <p className="bg-cyan-50 rounded-lg p-3 text-lg text-center text-gray-700 mb-6">
+    <div className="bg-gradient-to-r mt-16 from-[#0c0a23] to-[#222b83] relative flex flex-col items-center justify-center h-screen">
+      <h1 className="text-5xl text-center text-white font-bold mb-8">
+        Memory Game
+      </h1>
+      <p className="bg-[#4f67d5] hover:text-amber-100 rounded-lg p-3 text-lg text-center text-gray-700 mb-6">
         In programming, memory is crucial for recalling patterns, syntax, <br />
         and solutions to common problems. A good developer can store <br />
         and organize a lot of information in their mind while working, <br />
@@ -118,10 +120,10 @@ const MemoryGame = () => {
                   : 180,
             }}
             transition={{ duration: 0.5 }}
-            className={`w-16 h-16 flex items-center justify-center border rounded-lg cursor-pointer ${
+            className={`w-16 h-16 flex items-center justify-center border-2 border-[#4f67d5] rounded-lg cursor-pointer ${
               flippedCards.includes(card.id) || matchedCards.includes(card.id)
-                ? "bg-blue-600 text-white"
-                : "bg-gray-300"
+                ? "bg-[#4f67d5] text-white"
+                : "bg-[#0c0a23] text-white"
             }`}
           >
             {(flippedCards.includes(card.id) ||
@@ -131,11 +133,6 @@ const MemoryGame = () => {
           </motion.div>
         ))}
       </div>
-      {feedbackMessage && (
-        <div className="absolute text-4xl font-bold text-green-500">
-          {feedbackMessage}
-        </div>
-      )}
       <div className="mb-4">
         <button
           onClick={() => {
@@ -144,7 +141,7 @@ const MemoryGame = () => {
             setMatchedCards([]);
             setFlippedCards([]);
           }}
-          className="mt-4 bg-red-600 text-white rounded-full hover:bg-red-700 px-4 py-2"
+          className="mt-4 bg-[#4f67d5] text-white rounded-full hover:bg-[#222b83] px-4 py-2"
         >
           Restart
         </button>

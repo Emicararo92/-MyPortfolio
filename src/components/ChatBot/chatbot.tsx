@@ -92,10 +92,7 @@ const Chatbot: React.FC = () => {
               LinkedIn
             </a>
             ,{" "}
-            <a
-              href="mailto:tu-email@example.com" // Reemplaza con tu correo real
-              className="text-blue-500"
-            >
+            <a href="mailto:tu-email@example.com" className="text-blue-500">
               {language === "es" ? "Correo" : "Email"}
             </a>
           </>
@@ -131,14 +128,14 @@ const Chatbot: React.FC = () => {
     <div className={`fixed bottom-4 right-4 z-50 ${isOpen ? "w-80" : "w-16"}`}>
       <button
         onClick={toggleChat}
-        className={`bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full p-3 shadow-lg transition duration-300 ease-in-out transform hover:scale-105 ${
+        className={`bg-gradient-to-r from-[#0c0a23] to-[#4f67d5] text-white rounded-full p-3 shadow-lg transition duration-300 ease-in-out transform hover:scale-105 ${
           bounce ? "animate-bounce" : ""
         }`}
       >
         <AiOutlineMessage size={24} color="white" />
       </button>
       {isOpen && (
-        <div className="mt-2 bg-gradient-to-r from-blue-500 to-purple-600 p-4 shadow-lg rounded-lg overflow-hidden">
+        <div className="mt-2 bg-gradient-to-r from-[#0c0a23] to-[#4f67d5] p-4 shadow-lg rounded-lg overflow-hidden">
           <div className="flex justify-center mb-2">
             <Image
               src="/eeuu.png"
@@ -179,7 +176,7 @@ const Chatbot: React.FC = () => {
               >
                 <span
                   className={`block p-2 rounded ${
-                    msg.from === "user" ? "bg-teal-200" : "bg-gray-200"
+                    msg.from === "user" ? "bg-secondary" : "bg-tertiary"
                   }`}
                 >
                   {msg.text}
@@ -196,7 +193,7 @@ const Chatbot: React.FC = () => {
                     : "What technologies do you use?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
+              className="bg-[#222b83] text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-[#0c0a23]"
             >
               {language === "es"
                 ? "¿Cuáles son tus tecnologías?"
@@ -210,7 +207,7 @@ const Chatbot: React.FC = () => {
                     : "Do you have any interesting projects?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
+              className="bg-[#222b83] text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-[#0c0a23]"
             >
               {language === "es"
                 ? "¿Tienes algún proyecto interesante?"
@@ -224,7 +221,7 @@ const Chatbot: React.FC = () => {
                     : "How can I contact you?"
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
+              className="bg-[#222b83] text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-[#0c0a23]"
             >
               {language === "es"
                 ? "¿Cómo puedo contactarte?"
@@ -238,7 +235,7 @@ const Chatbot: React.FC = () => {
                     : "Thank you, that’s all."
                 )
               }
-              className="bg-gray-800 text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-gray-700"
+              className="bg-[#222b83] text-white rounded text-xs px-2 py-1 m-1 transition duration-300 hover:bg-[#0c0a23]"
             >
               {language === "es"
                 ? "Gracias, eso es todo."
