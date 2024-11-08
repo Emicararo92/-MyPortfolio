@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,15 +43,28 @@ const MemoryGame = () => {
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [disabled, setDisabled] = useState(false);
-
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
+  const [gameTime, setGameTime] = useState<number>(0); // Estado para el tiempo
+  const [gameStarted, setGameStarted] = useState<boolean>(false); // Estado para controlar si el juego ha comenzado
 
   useEffect(() => {
     const shuffledCards = [...icons].sort(() => Math.random() - 0.5);
     setCards(shuffledCards);
   }, []);
 
+  // Iniciar el temporizador cuando el juego comienza
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (gameStarted && matchedCards.length < cards.length) {
+      timer = setInterval(() => {
+        setGameTime((prevTime) => prevTime + 1); // Aumenta el tiempo en 1 segundo
+      }, 1000);
+    }
+    return () => clearInterval(timer); // Limpiar el temporizador cuando el componente se desmonte o el juego termine
+  }, [gameStarted, matchedCards.length]);
+
   const handleCardClick = (id: number) => {
+    if (!gameStarted) setGameStarted(true); // Inicia el juego cuando se hace clic en la primera carta
     if (disabled || flippedCards.includes(id) || matchedCards.includes(id))
       return;
 
@@ -75,7 +87,7 @@ const MemoryGame = () => {
           if (matchedCards.length + 2 === cards.length) {
             Swal.fire({
               title: "Congratulations!",
-              text: "You have won! 🎊",
+              text: `You have won in ${gameTime} seconds! 🎊`, // Muestra el tiempo
               icon: "success",
               confirmButtonText: "OK",
             });
@@ -92,6 +104,15 @@ const MemoryGame = () => {
     setDisabled(false);
   };
 
+  const handleRestart = () => {
+    const shuffledCards = [...icons].sort(() => Math.random() - 0.5);
+    setCards(shuffledCards);
+    setMatchedCards([]);
+    setFlippedCards([]);
+    setGameTime(0); // Reiniciar el tiempo
+    setGameStarted(false); // Reiniciar el estado del juego
+  };
+
   return (
     <div className="bg-gradient-to-r mt-16 from-[#0c0a23] to-[#222b83] relative flex flex-col items-center justify-center h-screen">
       <h1 className="text-5xl text-center text-white font-bold mb-8">
@@ -103,6 +124,10 @@ const MemoryGame = () => {
         and organize a lot of information in their mind while working, <br />
         which enhances efficiency and problem-solving capabilities.
       </p>
+
+      {/* Mostrar el tiempo transcurrido */}
+      <div className="text-white text-2xl mb-4">Time: {gameTime}s</div>
+
       <div className="grid grid-cols-4 gap-4">
         {cards.map((card) => (
           <motion.div
@@ -135,12 +160,7 @@ const MemoryGame = () => {
       </div>
       <div className="mb-4">
         <button
-          onClick={() => {
-            const shuffledCards = [...icons].sort(() => Math.random() - 0.5);
-            setCards(shuffledCards);
-            setMatchedCards([]);
-            setFlippedCards([]);
-          }}
+          onClick={handleRestart}
           className="mt-4 bg-[#4f67d5] text-white rounded-full hover:bg-[#222b83] px-4 py-2"
         >
           Restart
