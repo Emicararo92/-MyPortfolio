@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -44,8 +45,8 @@ const MemoryGame = () => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [disabled, setDisabled] = useState(false);
   const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
-  const [gameTime, setGameTime] = useState<number>(0); // Estado para el tiempo
-  const [gameStarted, setGameStarted] = useState<boolean>(false); // Estado para controlar si el juego ha comenzado
+  const [gameTime, setGameTime] = useState<number>(0);
+  const [gameStarted, setGameStarted] = useState<boolean>(false);
 
   useEffect(() => {
     const shuffledCards = [...icons].sort(() => Math.random() - 0.5);
@@ -57,14 +58,14 @@ const MemoryGame = () => {
     let timer: NodeJS.Timeout;
     if (gameStarted && matchedCards.length < cards.length) {
       timer = setInterval(() => {
-        setGameTime((prevTime) => prevTime + 1); // Aumenta el tiempo en 1 segundo
+        setGameTime((prevTime) => prevTime + 1);
       }, 1000);
     }
-    return () => clearInterval(timer); // Limpiar el temporizador cuando el componente se desmonte o el juego termine
-  }, [gameStarted, matchedCards.length]);
+    return () => clearInterval(timer);
+  }, [gameStarted, matchedCards.length, cards.length]); // Se añadió 'cards.length' para satisfacer ESLint
 
   const handleCardClick = (id: number) => {
-    if (!gameStarted) setGameStarted(true); // Inicia el juego cuando se hace clic en la primera carta
+    if (!gameStarted) setGameStarted(true);
     if (disabled || flippedCards.includes(id) || matchedCards.includes(id))
       return;
 
@@ -87,7 +88,7 @@ const MemoryGame = () => {
           if (matchedCards.length + 2 === cards.length) {
             Swal.fire({
               title: "Congratulations!",
-              text: `You have won in ${gameTime} seconds! 🎊`, // Muestra el tiempo
+              text: `You have won in ${gameTime} seconds! 🎊`,
               icon: "success",
               confirmButtonText: "OK",
             });
@@ -109,8 +110,8 @@ const MemoryGame = () => {
     setCards(shuffledCards);
     setMatchedCards([]);
     setFlippedCards([]);
-    setGameTime(0); // Reiniciar el tiempo
-    setGameStarted(false); // Reiniciar el estado del juego
+    setGameTime(0);
+    setGameStarted(false);
   };
 
   return (
